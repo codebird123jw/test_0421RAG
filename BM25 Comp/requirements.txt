@@ -1,0 +1,4 @@
+﻿numpy>=1.24
+scikit-learn>=1.3
+# Optional for dense vector baseline:
+# sentence-transformers>=5.4

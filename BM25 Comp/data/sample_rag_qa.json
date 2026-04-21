@@ -1,0 +1,138 @@
+﻿{
+  "documents": [
+    {
+      "id": "doc_001",
+      "title": "BM25 basics",
+      "text": "BM25 is a probabilistic retrieval model that scores documents with term frequency, inverse document frequency, and document length normalization. In Apache Lucene BM25Similarity, the default parameters are k1=1.2 and b=0.75."
+    },
+    {
+      "id": "doc_002",
+      "title": "RAG paper",
+      "text": "The RAG framework was introduced by Lewis et al. in 2020. It combines parametric memory in a seq2seq model with non-parametric memory from a dense vector index."
+    },
+    {
+      "id": "doc_003",
+      "title": "DPR",
+      "text": "Dense Passage Retrieval (DPR) uses a dual-encoder architecture with one encoder for questions and another for passages. Retrieval is performed with maximum inner product or cosine similarity in embedding space."
+    },
+    {
+      "id": "doc_004",
+      "title": "RRF",
+      "text": "Reciprocal Rank Fusion combines multiple ranked lists with score(d) = sum over systems of 1/(k + rank). A common constant is k=60 from the original SIGIR 2009 paper."
+    },
+    {
+      "id": "doc_005",
+      "title": "Hybrid retrieval",
+      "text": "Hybrid retrieval mixes sparse lexical search such as BM25 with dense vector search. This often improves recall because lexical and semantic retrievers make different errors."
+    },
+    {
+      "id": "doc_006",
+      "title": "Chunking",
+      "text": "RAG systems typically split long documents into chunks before indexing. Common chunk sizes are around 300 to 800 tokens with overlap to preserve context continuity."
+    },
+    {
+      "id": "doc_007",
+      "title": "Evaluation",
+      "text": "Retrieval quality is often measured with Recall@k, Hit@k, and MRR. End-to-end QA quality is commonly measured with Exact Match and token-level F1."
+    },
+    {
+      "id": "doc_008",
+      "title": "BM25 in Chinese",
+      "text": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。"
+    },
+    {
+      "id": "doc_009",
+      "title": "Vector pitfalls",
+      "text": "Vector search can miss exact rare keywords such as product code TX-900 or legal clause 18.2. Sparse retrieval is usually stronger for exact term matching."
+    },
+    {
+      "id": "doc_010",
+      "title": "When hybrid wins",
+      "text": "Hybrid search tends to win on heterogeneous corpora where some questions require exact lexical matches and others require semantic paraphrase matching."
+    },
+    {
+      "id": "doc_011",
+      "title": "Latency tradeoff",
+      "text": "Compared with a single retriever, hybrid retrieval adds latency because two retrieval systems run in parallel and then merge results."
+    },
+    {
+      "id": "doc_012",
+      "title": "RAG prompt",
+      "text": "A simple RAG prompt includes the user question and top retrieved passages. The generator should be instructed to answer only from provided context and abstain if evidence is missing."
+    }
+  ],
+  "qa": [
+    {
+      "id": "q_001",
+      "question": "Lucene 的 BM25 預設超參數數值是什麼？",
+      "answers": ["k1=1.2 and b=0.75", "k1=1.2 與 b=0.75"],
+      "gold_doc_ids": ["doc_001"]
+    },
+    {
+      "id": "q_002",
+      "question": "哪個方法把 seq2seq 生成模型和外部向量知識庫一起使用？",
+      "answers": ["RAG framework", "RAG"],
+      "gold_doc_ids": ["doc_002"]
+    },
+    {
+      "id": "q_003",
+      "question": "DPR 採用哪一種檢索編碼器架構？",
+      "answers": ["dual-encoder architecture", "雙編碼器"],
+      "gold_doc_ids": ["doc_003"]
+    },
+    {
+      "id": "q_004",
+      "question": "倒數排名融合通常使用的常數大約是多少？",
+      "answers": ["k=60", "60"],
+      "gold_doc_ids": ["doc_004"]
+    },
+    {
+      "id": "q_005",
+      "question": "同時結合關鍵字比對與語意向量比對的做法叫什麼？",
+      "answers": ["Hybrid retrieval", "混合檢索"],
+      "gold_doc_ids": ["doc_005"]
+    },
+    {
+      "id": "q_006",
+      "question": "RAG 文件切塊常見大約幾百個 token？",
+      "answers": ["300 to 800 tokens", "300 到 800 tokens"],
+      "gold_doc_ids": ["doc_006"]
+    },
+    {
+      "id": "q_007",
+      "question": "評估檢索排序時，常見三個指標是什麼？",
+      "answers": ["Recall@k, Hit@k, and MRR", "Recall@k、Hit@k、MRR"],
+      "gold_doc_ids": ["doc_007"]
+    },
+    {
+      "id": "q_008",
+      "question": "沒有中文斷詞器時，常見替代策略是什麼？",
+      "answers": ["字元級切分", "character-level segmentation"],
+      "gold_doc_ids": ["doc_008"]
+    },
+    {
+      "id": "q_009",
+      "question": "遇到 TX-900 這類精確代碼時，哪種檢索通常更穩？",
+      "answers": ["Sparse retrieval", "稀疏檢索"],
+      "gold_doc_ids": ["doc_009"]
+    },
+    {
+      "id": "q_010",
+      "question": "在什麼資料型態下，混合檢索通常更容易優於單一路徑？",
+      "answers": ["heterogeneous corpora", "異質語料"],
+      "gold_doc_ids": ["doc_010"]
+    },
+    {
+      "id": "q_011",
+      "question": "混合檢索相對單一檢索器常見代價是什麼？",
+      "answers": ["adds latency", "延遲增加"],
+      "gold_doc_ids": ["doc_011"]
+    },
+    {
+      "id": "q_012",
+      "question": "RAG prompt 在證據不足時應該怎麼做？",
+      "answers": ["abstain if evidence is missing", "證據不足時應保留"],
+      "gold_doc_ids": ["doc_012"]
+    }
+  ]
+}

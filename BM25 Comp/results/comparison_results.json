@@ -1,0 +1,916 @@
+{
+  "config": {
+    "top_k": 5,
+    "context_k": 3,
+    "rrf_k": 60,
+    "rrf_rank_window": 50,
+    "bm25_weight": 0.5,
+    "vector_weight": 1.5,
+    "vector_backend_requested": "tfidf",
+    "vector_backend_used": "tfidf",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "dataset": "data\\sample_rag_qa.json"
+  },
+  "results": [
+    {
+      "pipeline": "bm25_rag",
+      "metrics": {
+        "Hit@k": 0.6666666666666666,
+        "Recall@k": 0.6666666666666666,
+        "MRR@k": 0.4611111111111111,
+        "EM": 0.0,
+        "F1": 0.040338164251207724
+      },
+      "per_question": [
+        {
+          "qid": "q_001",
+          "question": "Lucene 的 BM25 預設超參數數值是什麼？",
+          "top_docs": [
+            "doc_001",
+            "doc_008",
+            "doc_005",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_001"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "k1=1.2 and b=0.75",
+            "k1=1.2 與 b=0.75"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_002",
+          "question": "哪個方法把 seq2seq 生成模型和外部向量知識庫一起使用？",
+          "top_docs": [
+            "doc_002",
+            "doc_008",
+            "doc_003",
+            "doc_001",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_002"
+          ],
+          "prediction": "It combines parametric memory in a seq2seq model with non-parametric memory from a dense vector index.",
+          "answers": [
+            "RAG framework",
+            "RAG"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_003",
+          "question": "DPR 採用哪一種檢索編碼器架構？",
+          "top_docs": [
+            "doc_008",
+            "doc_003",
+            "doc_002",
+            "doc_001",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_003"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "dual-encoder architecture",
+            "雙編碼器"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.5,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_004",
+          "question": "倒數排名融合通常使用的常數大約是多少？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_004"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "k=60",
+            "60"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.2,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_005",
+          "question": "同時結合關鍵字比對與語意向量比對的做法叫什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_005"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Hybrid retrieval",
+            "混合檢索"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.08888888888888888
+        },
+        {
+          "qid": "q_006",
+          "question": "RAG 文件切塊常見大約幾百個 token？",
+          "top_docs": [
+            "doc_008",
+            "doc_007",
+            "doc_006",
+            "doc_002",
+            "doc_012"
+          ],
+          "gold_docs": [
+            "doc_006"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "300 to 800 tokens",
+            "300 到 800 tokens"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.3333333333333333,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_007",
+          "question": "評估檢索排序時，常見三個指標是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_007"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Recall@k, Hit@k, and MRR",
+            "Recall@k、Hit@k、MRR"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_008",
+          "question": "沒有中文斷詞器時，常見替代策略是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_008"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "字元級切分",
+            "character-level segmentation"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.21739130434782605
+        },
+        {
+          "qid": "q_009",
+          "question": "遇到 TX-900 這類精確代碼時，哪種檢索通常更穩？",
+          "top_docs": [
+            "doc_008",
+            "doc_009",
+            "doc_003",
+            "doc_001",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_009"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Sparse retrieval",
+            "稀疏檢索"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.5,
+          "em": 0.0,
+          "f1": 0.08888888888888888
+        },
+        {
+          "qid": "q_010",
+          "question": "在什麼資料型態下，混合檢索通常更容易優於單一路徑？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_010"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "heterogeneous corpora",
+            "異質語料"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_011",
+          "question": "混合檢索相對單一檢索器常見代價是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_011"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "adds latency",
+            "延遲增加"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_012",
+          "question": "RAG prompt 在證據不足時應該怎麼做？",
+          "top_docs": [
+            "doc_012",
+            "doc_008",
+            "doc_006",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_012"
+          ],
+          "prediction": "A simple RAG prompt includes the user question and top retrieved passages.",
+          "answers": [
+            "abstain if evidence is missing",
+            "證據不足時應保留"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        }
+      ]
+    },
+    {
+      "pipeline": "vector_rag_tfidf",
+      "metrics": {
+        "Hit@k": 0.75,
+        "Recall@k": 0.75,
+        "MRR@k": 0.6208333333333333,
+        "EM": 0.0,
+        "F1": 0.040867264780308256
+      },
+      "per_question": [
+        {
+          "qid": "q_001",
+          "question": "Lucene 的 BM25 預設超參數數值是什麼？",
+          "top_docs": [
+            "doc_001",
+            "doc_005",
+            "doc_008",
+            "doc_003",
+            "doc_012"
+          ],
+          "gold_docs": [
+            "doc_001"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "k1=1.2 and b=0.75",
+            "k1=1.2 與 b=0.75"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_002",
+          "question": "哪個方法把 seq2seq 生成模型和外部向量知識庫一起使用？",
+          "top_docs": [
+            "doc_002",
+            "doc_010",
+            "doc_005",
+            "doc_009",
+            "doc_001"
+          ],
+          "gold_docs": [
+            "doc_002"
+          ],
+          "prediction": "It combines parametric memory in a seq2seq model with non-parametric memory from a dense vector index.",
+          "answers": [
+            "RAG framework",
+            "RAG"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_003",
+          "question": "DPR 採用哪一種檢索編碼器架構？",
+          "top_docs": [
+            "doc_003",
+            "doc_009",
+            "doc_008",
+            "doc_012",
+            "doc_001"
+          ],
+          "gold_docs": [
+            "doc_003"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "dual-encoder architecture",
+            "雙編碼器"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_004",
+          "question": "倒數排名融合通常使用的常數大約是多少？",
+          "top_docs": [
+            "doc_001",
+            "doc_002",
+            "doc_003",
+            "doc_004",
+            "doc_005"
+          ],
+          "gold_docs": [
+            "doc_004"
+          ],
+          "prediction": "BM25 is a probabilistic retrieval model that scores documents with term frequency, inverse document frequency, and document length normalization.",
+          "answers": [
+            "k=60",
+            "60"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.25,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_005",
+          "question": "同時結合關鍵字比對與語意向量比對的做法叫什麼？",
+          "top_docs": [
+            "doc_001",
+            "doc_002",
+            "doc_003",
+            "doc_004",
+            "doc_005"
+          ],
+          "gold_docs": [
+            "doc_005"
+          ],
+          "prediction": "BM25 is a probabilistic retrieval model that scores documents with term frequency, inverse document frequency, and document length normalization.",
+          "answers": [
+            "Hybrid retrieval",
+            "混合檢索"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.2,
+          "em": 0.0,
+          "f1": 0.09523809523809525
+        },
+        {
+          "qid": "q_006",
+          "question": "RAG 文件切塊常見大約幾百個 token？",
+          "top_docs": [
+            "doc_006",
+            "doc_007",
+            "doc_012",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_006"
+          ],
+          "prediction": "RAG systems typically split long documents into chunks before indexing.",
+          "answers": [
+            "300 to 800 tokens",
+            "300 到 800 tokens"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_007",
+          "question": "評估檢索排序時，常見三個指標是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_007"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Recall@k, Hit@k, and MRR",
+            "Recall@k、Hit@k、MRR"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_008",
+          "question": "沒有中文斷詞器時，常見替代策略是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_008"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "字元級切分",
+            "character-level segmentation"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.21739130434782605
+        },
+        {
+          "qid": "q_009",
+          "question": "遇到 TX-900 這類精確代碼時，哪種檢索通常更穩？",
+          "top_docs": [
+            "doc_009",
+            "doc_006",
+            "doc_008",
+            "doc_004",
+            "doc_012"
+          ],
+          "gold_docs": [
+            "doc_009"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Sparse retrieval",
+            "稀疏檢索"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.08888888888888888
+        },
+        {
+          "qid": "q_010",
+          "question": "在什麼資料型態下，混合檢索通常更容易優於單一路徑？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_010"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "heterogeneous corpora",
+            "異質語料"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_011",
+          "question": "混合檢索相對單一檢索器常見代價是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_011"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "adds latency",
+            "延遲增加"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_012",
+          "question": "RAG prompt 在證據不足時應該怎麼做？",
+          "top_docs": [
+            "doc_012",
+            "doc_002",
+            "doc_006",
+            "doc_004",
+            "doc_003"
+          ],
+          "gold_docs": [
+            "doc_012"
+          ],
+          "prediction": "A simple RAG prompt includes the user question and top retrieved passages.",
+          "answers": [
+            "abstain if evidence is missing",
+            "證據不足時應保留"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        }
+      ]
+    },
+    {
+      "pipeline": "hybrid_rrf_rag_tfidf",
+      "metrics": {
+        "Hit@k": 0.75,
+        "Recall@k": 0.75,
+        "MRR@k": 0.6208333333333333,
+        "EM": 0.0,
+        "F1": 0.040867264780308256
+      },
+      "per_question": [
+        {
+          "qid": "q_001",
+          "question": "Lucene 的 BM25 預設超參數數值是什麼？",
+          "top_docs": [
+            "doc_001",
+            "doc_005",
+            "doc_008",
+            "doc_003",
+            "doc_002"
+          ],
+          "gold_docs": [
+            "doc_001"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "k1=1.2 and b=0.75",
+            "k1=1.2 與 b=0.75"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_002",
+          "question": "哪個方法把 seq2seq 生成模型和外部向量知識庫一起使用？",
+          "top_docs": [
+            "doc_002",
+            "doc_005",
+            "doc_010",
+            "doc_001",
+            "doc_009"
+          ],
+          "gold_docs": [
+            "doc_002"
+          ],
+          "prediction": "It combines parametric memory in a seq2seq model with non-parametric memory from a dense vector index.",
+          "answers": [
+            "RAG framework",
+            "RAG"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_003",
+          "question": "DPR 採用哪一種檢索編碼器架構？",
+          "top_docs": [
+            "doc_003",
+            "doc_008",
+            "doc_009",
+            "doc_001",
+            "doc_012"
+          ],
+          "gold_docs": [
+            "doc_003"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "dual-encoder architecture",
+            "雙編碼器"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_004",
+          "question": "倒數排名融合通常使用的常數大約是多少？",
+          "top_docs": [
+            "doc_001",
+            "doc_002",
+            "doc_003",
+            "doc_004",
+            "doc_005"
+          ],
+          "gold_docs": [
+            "doc_004"
+          ],
+          "prediction": "BM25 is a probabilistic retrieval model that scores documents with term frequency, inverse document frequency, and document length normalization.",
+          "answers": [
+            "k=60",
+            "60"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.25,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_005",
+          "question": "同時結合關鍵字比對與語意向量比對的做法叫什麼？",
+          "top_docs": [
+            "doc_001",
+            "doc_002",
+            "doc_003",
+            "doc_004",
+            "doc_005"
+          ],
+          "gold_docs": [
+            "doc_005"
+          ],
+          "prediction": "BM25 is a probabilistic retrieval model that scores documents with term frequency, inverse document frequency, and document length normalization.",
+          "answers": [
+            "Hybrid retrieval",
+            "混合檢索"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 0.2,
+          "em": 0.0,
+          "f1": 0.09523809523809525
+        },
+        {
+          "qid": "q_006",
+          "question": "RAG 文件切塊常見大約幾百個 token？",
+          "top_docs": [
+            "doc_006",
+            "doc_007",
+            "doc_012",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_006"
+          ],
+          "prediction": "RAG systems typically split long documents into chunks before indexing.",
+          "answers": [
+            "300 to 800 tokens",
+            "300 到 800 tokens"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_007",
+          "question": "評估檢索排序時，常見三個指標是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_007"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Recall@k, Hit@k, and MRR",
+            "Recall@k、Hit@k、MRR"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_008",
+          "question": "沒有中文斷詞器時，常見替代策略是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_008"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "字元級切分",
+            "character-level segmentation"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.21739130434782605
+        },
+        {
+          "qid": "q_009",
+          "question": "遇到 TX-900 這類精確代碼時，哪種檢索通常更穩？",
+          "top_docs": [
+            "doc_009",
+            "doc_008",
+            "doc_006",
+            "doc_004",
+            "doc_001"
+          ],
+          "gold_docs": [
+            "doc_009"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "Sparse retrieval",
+            "稀疏檢索"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.08888888888888888
+        },
+        {
+          "qid": "q_010",
+          "question": "在什麼資料型態下，混合檢索通常更容易優於單一路徑？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_010"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "heterogeneous corpora",
+            "異質語料"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.04444444444444444
+        },
+        {
+          "qid": "q_011",
+          "question": "混合檢索相對單一檢索器常見代價是什麼？",
+          "top_docs": [
+            "doc_008",
+            "doc_001",
+            "doc_003",
+            "doc_002",
+            "doc_004"
+          ],
+          "gold_docs": [
+            "doc_011"
+          ],
+          "prediction": "在中文檢索中，BM25 仍然有效，但分詞品質會明顯影響結果。若沒有斷詞器，常見替代方案是字元級切分。",
+          "answers": [
+            "adds latency",
+            "延遲增加"
+          ],
+          "hit": 0.0,
+          "recall": 0.0,
+          "mrr": 0.0,
+          "em": 0.0,
+          "f1": 0.0
+        },
+        {
+          "qid": "q_012",
+          "question": "RAG prompt 在證據不足時應該怎麼做？",
+          "top_docs": [
+            "doc_012",
+            "doc_002",
+            "doc_006",
+            "doc_004",
+            "doc_003"
+          ],
+          "gold_docs": [
+            "doc_012"
+          ],
+          "prediction": "A simple RAG prompt includes the user question and top retrieved passages.",
+          "answers": [
+            "abstain if evidence is missing",
+            "證據不足時應保留"
+          ],
+          "hit": 1.0,
+          "recall": 1.0,
+          "mrr": 1.0,
+          "em": 0.0,
+          "f1": 0.0
+        }
+      ]
+    }
+  ]
+}
